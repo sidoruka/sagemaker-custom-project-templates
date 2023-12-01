@@ -6,6 +6,15 @@
 # - Important Outputs of this Terraform execution
 #------------------------------------------------#
 
+terraform {
+  backend "s3" {
+    bucket         = "bioaim-ai-tfstate-store"
+    key            = "dev/sagemaker-project-dev/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "bioaim-ai-terraform-lock"
+  }
+
 #AWS Provider
 provider "aws" {}
 
