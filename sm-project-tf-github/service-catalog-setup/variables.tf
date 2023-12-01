@@ -24,6 +24,10 @@ variable "sc_product_owner" {
   description = "Owner of Service Catalog Product Owner"
 }
 
+variable "sc_common_roles_boundary" {
+  description = "Common boundary for the IAM roles"
+}
+
 variable "sc_product_launch_role" {
   description = "IAM role for the SC Product Launch"
 }
