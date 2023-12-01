@@ -8,7 +8,7 @@
 #----------------------------------------------------------------------------------#
 
 resource "aws_s3_bucket" "terraform_data_source_s3" {
-  bucket        = "${local.cmn_res_name}-${local.account_id}"
+  bucket        = "${local.s3_cmn_res_name}-${local.account_id}"
   force_destroy = true
   tags          = local.common_tags
 }
