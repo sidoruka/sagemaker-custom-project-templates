@@ -16,7 +16,6 @@ resource "aws_iam_policy" "c_runner_iam_policy" {
 
 resource "aws_iam_role" "c_runner_iam_role" {
   name               = var.command_runner_exec_role
-  path               = "/CloudFormation/"
   description        = "Role to be Assumed by Command Runner"
   permissions_boundary = "arn:aws:iam::${local.account_id}:${var.sc_common_roles_boundary}"
   assume_role_policy = <<EOF
