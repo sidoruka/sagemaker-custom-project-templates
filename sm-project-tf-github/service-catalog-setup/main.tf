@@ -14,7 +14,7 @@ terraform {
     encrypt        = true
     dynamodb_table = "bioaim-ai-terraform-lock"
   }
-
+}
 #AWS Provider
 provider "aws" {}
 
