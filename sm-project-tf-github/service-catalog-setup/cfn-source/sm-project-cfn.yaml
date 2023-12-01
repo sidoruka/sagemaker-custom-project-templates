@@ -74,36 +74,37 @@ Resources:
     Properties:
       Command: !Sub |
         sudo su
-        yum update -y >> /command-output.txt 2>&1
-        yum install -y yum-utils >> /command-output.txt 2>&1
-        yum install -y unzip >> /command-output.txt 2>&1
-        yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo >> /command-output.txt 2>&1
-        yum -y install terraform >> /command-output.txt 2>&1
-        terraform -help >> /command-output.txt 2>&1
-        mkdir /tmp/terraform  >> /command-output.txt 2>&1
-        aws s3 cp s3://${MLOpsS3Bucket}/tf-code.zip /tmp/terraform  >> /command-output.txt 2>&1
+        yum update -y
+        yum install -y yum-utils
+        yum install -y unzip
+        yum install -y ca-certificates
+        yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+        yum -y install terraform
+        terraform -help
+        mkdir /tmp/terraform 
+        aws s3 cp s3://${MLOpsS3Bucket}/tf-code.zip /tmp/terraform 
         cd /tmp/terraform
-        unzip tf-code.zip >> /command-output.txt 2>&1
-        ls -la >> /command-output.txt 2>&1
-        terraform ${TerraformInitAction} >> /command-output.txt
-        echo "Terraform Init Output : $?"  >> /command-output.txt 2>&1
+        unzip tf-code.zip
+        ls -la
+        terraform ${TerraformInitAction}
+        echo "Terraform Init Output : $?" 
         export TF_VAR_sagemaker_project_name=${SageMakerProjectName}
-        echo "$TF_VAR_sagemaker_project_name" >> /command-output.txt
+        echo "$TF_VAR_sagemaker_project_name"
         export TF_VAR_sagemaker_project_id=${SageMakerProjectId}
-        echo "$TF_VAR_sagemaker_project_id" >> /command-output.txt
+        echo "$TF_VAR_sagemaker_project_id"
         export TF_VAR_git_repo_url=${GitRepoURL}
-        echo "$TF_VAR_git_repo_url" >> /command-output.txt
+        echo "$TF_VAR_git_repo_url"
         export TF_VAR_git_repo_name=${GitRepoName}
-        echo "$TF_VAR_git_repo_name" >> /command-output.txt
+        echo "$TF_VAR_git_repo_name"
         export TF_VAR_git_repo_branch=${GitBranchName}
-        echo "$TF_VAR_git_repo_branch" >> /command-output.txt
+        echo "$TF_VAR_git_repo_branch"
         export TF_VAR_codestar_connection_arn=${CodeStarConnectionArn}
-        echo "$TF_VAR_codestar_connection_arn" >> /command-output.txt
+        echo "$TF_VAR_codestar_connection_arn"
         export TF_VAR_secrets_manager_secret_arn=${SecretsManagerSecretArn}
-        echo "$TF_VAR_secrets_manager_secret_arn" >> /command-output.txt
-        terraform plan >> /command-output.txt 2>&1
-        terraform ${TerraformAction} -auto-approve >> /command-output.txt 2>&1 
-        echo "Terraform Apply Output : $?"  >> /command-output.txt
+        echo "$TF_VAR_secrets_manager_secret_arn"
+        terraform plan
+        terraform ${TerraformAction} -auto-approve 
+        echo "Terraform Apply Output : $?"
         echo "Exiting" >> /command-output.txt
       Role: !Ref CommandRunnerIAMInstanceProfile
       LogGroup: !Ref CommandRunnerCWLogGrp
