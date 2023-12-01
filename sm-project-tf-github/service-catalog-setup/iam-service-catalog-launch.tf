@@ -16,7 +16,6 @@ resource "aws_iam_policy" "sc_launch_iam_policy" {
 
 resource "aws_iam_role" "sc_launch_iam_role" {
   name               = var.sc_product_launch_role
-  path               = "/Launch/Constraint/"
   description        = "Role to be Assumed by Service Catalog Product Launch"
   permissions_boundary =  "arn:aws:iam::${local.account_id}:${var.sc_common_roles_boundary}"
   assume_role_policy = <<EOF
