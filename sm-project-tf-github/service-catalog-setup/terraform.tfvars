@@ -10,6 +10,8 @@ role         = "ops"
 sc_portfolio_owner = "Admin"
 sc_product_owner   = "Admin"
 
+# Common boundary for the IAM roles
+sc_common_roles_boundary = "policy/<BoundaryPolicyName>"
 
 # Service Catalog Launch Role
 sc_product_launch_role = "CustomAmazonSagemakerServiceCatalogProductLaunchRole"
