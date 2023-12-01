@@ -9,6 +9,7 @@ locals {
 
   # Common Resource Name  
   cmn_res_name = "${var.env}-${var.organization}-${var.role}"
+  s3_cmn_res_name = "${var.env}-${var.organization}-${var.role}"
 
   # Folder of the SageMaker Project CFN template  
   cfn_folder = "cfn-source"
