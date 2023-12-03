@@ -64,6 +64,16 @@ def get_build_environment_variables_override(event):
                 "value": event["REPLACE_SAGEMAKER_PROJECT_FSX_ID"],
                 "type": "PLAINTEXT",
             },
+            {
+                "name": "SAGEMAKER_PROJECT_WORKING_BUCKET",
+                "value": event["SAGEMAKER_PROJECT_WORKING_BUCKET"],
+                "type": "PLAINTEXT",
+            },
+            {
+                "name": "SAGEMAKER_PROJECT_SAMPLE_DATA_INPUT",
+                "value": "s3://" + event["SAGEMAKER_PROJECT_WORKING_BUCKET"] + "/abalone-dataset.csv",
+                "type": "PLAINTEXT",
+            },
         ]
 
         return env_variables
