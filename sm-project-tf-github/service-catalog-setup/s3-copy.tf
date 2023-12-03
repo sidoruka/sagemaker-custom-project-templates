@@ -19,3 +19,15 @@ resource "aws_s3_object" "s3_tf_code_zip" {
   source     = "${local.output_files}/${local.output_tf_zip_folder}.zip"
   # etag   = filemd5("${local.output_files}/${local.output_tf_zip_folder}.zip")
 }
+
+resource "aws_s3_object" "s3_seed_codebuild_checkin_zip" {
+  bucket = aws_s3_bucket.terraform_data_source_s3.id
+  key    = local.seed_codebuild_checkin_zip
+  source = "${local.seed_folder}/${local.seed_codebuild_checkin_zip}"
+}
+
+resource "aws_s3_object" "s3_seed_code_zip" {
+  bucket = aws_s3_bucket.terraform_data_source_s3.id
+  key    = local.seed_code_zip
+  source = "${local.seed_folder}/${local.seed_code_zip}"
+}
