@@ -83,6 +83,6 @@ resource "aws_lambda_invocation" "seed_code_lambda_trigger" {
     GIT_REPOSITORY_BRANCH             = var.git_repo_branch
     GIT_REPOSITORY_CONNECTION_ARN     = var.codestar_connection_arn
     REPLACE_SAGEMAKER_PROJECT_FSX_ID  = var.fsx_id
-    SAGEMAKER_PROJECT_WORKING_BUCKET  = var.working_bucket
+    REPLACE_SAGEMAKER_PROJECT_WORKING_BUCKET  = var.working_bucket
   })
 }
