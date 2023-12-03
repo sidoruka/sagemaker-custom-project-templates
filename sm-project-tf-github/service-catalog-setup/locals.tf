@@ -27,6 +27,7 @@ locals {
   # Seed code
   seed_codebuild_checkin_zip = "GitRepositorySeedCodeCheckinCodeBuildProject-v1.0.zip"
   seed_code_zip = "model-building-workflow-v1.0.zip"
+  seed_sample_data = "abalone-dataset.csv"
   seed_folder = "seed"
 
   # Tags for Resources  
