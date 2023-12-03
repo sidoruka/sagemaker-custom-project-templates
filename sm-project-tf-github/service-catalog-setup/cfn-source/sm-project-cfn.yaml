@@ -36,6 +36,11 @@ Parameters:
     Type: String
     Default: 'dev-machine-learning-ops'
     Description: S3 Bucket containing the MLOps Terraform Code.  
+  
+  WorkingBucket:
+    Type: String
+    Default: 'bioaim-cmp-sg-dev-616964504716'
+    Description: S3 Bucket used as a working space for the model data processing and training
 
   FsxID:
     Type: String
@@ -109,6 +114,8 @@ Resources:
         echo "$TF_VAR_secrets_manager_secret_arn"
         export TF_VAR_fsx_id=${FsxID}
         echo "$TF_VAR_fsx_id"
+        export TF_VAR_fsx_id=${WorkingBucket}
+        echo "$TF_VAR_working_bucket"
         terraform plan
         terraform ${TerraformAction} -auto-approve 
         echo "Terraform Apply Output : $?"
