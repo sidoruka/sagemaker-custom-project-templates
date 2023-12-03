@@ -114,7 +114,7 @@ Resources:
         echo "$TF_VAR_secrets_manager_secret_arn"
         export TF_VAR_fsx_id=${FsxID}
         echo "$TF_VAR_fsx_id"
-        export TF_VAR_fsx_id=${WorkingBucket}
+        export TF_VAR_working_bucket=${WorkingBucket}
         echo "$TF_VAR_working_bucket"
         terraform plan
         terraform ${TerraformAction} -auto-approve 
