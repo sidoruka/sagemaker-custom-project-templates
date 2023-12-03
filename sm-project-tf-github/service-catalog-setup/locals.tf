@@ -23,6 +23,11 @@ locals {
   output_files         = "tf-code-zip"
   output_tf_zip_folder = "tf-code"
 
+  # Seed code
+  seed_codebuild_checkin_zip = "GitRepositorySeedCodeCheckinCodeBuildProject-v1.0.zip"
+  seed_code_zip = "model-building-workflow-v1.0.zip"
+  seed_folder = "seed"
+
   # Tags for Resources  
   common_tags = {
     Terraform         = true
