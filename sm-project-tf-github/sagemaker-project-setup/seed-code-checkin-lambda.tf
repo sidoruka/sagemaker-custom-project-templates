@@ -77,10 +77,11 @@ resource "aws_lambda_invocation" "seed_code_lambda_trigger" {
   }
 
   input = jsonencode({
-    SEEDCODE_BUCKET_NAME          = var.seed_code_bucket_name
-    SEEDCODE_BUCKET_KEY           = var.seed_code_bucket_key
-    GIT_REPOSITORY_FULL_NAME      = var.git_repo_name
-    GIT_REPOSITORY_BRANCH         = var.git_repo_branch
-    GIT_REPOSITORY_CONNECTION_ARN = var.codestar_connection_arn
+    SEEDCODE_BUCKET_NAME              = var.seed_code_bucket_name
+    SEEDCODE_BUCKET_KEY               = var.seed_code_bucket_key
+    GIT_REPOSITORY_FULL_NAME          = var.git_repo_name
+    GIT_REPOSITORY_BRANCH             = var.git_repo_branch
+    GIT_REPOSITORY_CONNECTION_ARN     = var.codestar_connection_arn
+    REPLACE_SAGEMAKER_PROJECT_FSX_ID  = var.fsx_id
   })
 }
