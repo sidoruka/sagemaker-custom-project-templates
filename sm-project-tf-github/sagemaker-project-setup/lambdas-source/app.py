@@ -54,6 +54,11 @@ def get_build_environment_variables_override(event):
                 "value": event["GIT_REPOSITORY_CONNECTION_ARN"],
                 "type": "PLAINTEXT",
             },
+            {
+                "name": "REPLACE_SAGEMAKER_PROJECT_FSX_ID",
+                "value": event["REPLACE_SAGEMAKER_PROJECT_FSX_ID"],
+                "type": "PLAINTEXT",
+            },
         ]
 
         return env_variables
