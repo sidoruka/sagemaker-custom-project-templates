@@ -82,3 +82,8 @@ variable "fsx_id" {
   description = "ID of the FSx for Lustre filesystem containing the training job inputs"
 }
 
+variable "working_bucket" {
+  description = "S3 Bucket used as a working space for the model data processing and training"
+}
+
+
