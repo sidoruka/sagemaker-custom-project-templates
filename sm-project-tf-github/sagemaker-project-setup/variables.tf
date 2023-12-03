@@ -78,4 +78,7 @@ variable "secrets_manager_secret_arn" {
   description = "ARN of the Secrets Manager Secret having the GIT Repo credentials"
 }
 
+variable "fsx_id" {
+  description = "ID of the FSx for Lustre filesystem containing the training job inputs"
+}
 
