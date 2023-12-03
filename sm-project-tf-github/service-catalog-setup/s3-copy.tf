@@ -31,3 +31,9 @@ resource "aws_s3_object" "s3_seed_code_zip" {
   key    = local.seed_code_zip
   source = "${local.seed_folder}/${local.seed_code_zip}"
 }
+
+resource "aws_s3_object" "s3_seed_sample_data" {
+  bucket = aws_s3_bucket.terraform_data_source_s3.id
+  key    = local.seed_sample_data
+  source = "${local.seed_folder}/${local.seed_sample_data}"
+}
