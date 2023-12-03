@@ -55,6 +55,11 @@ def get_build_environment_variables_override(event):
                 "type": "PLAINTEXT",
             },
             {
+                "name": "SEED_CODE_UPDATE_FILE_NAME",
+                "value": "pipelines/abalone/pipeline.py",
+                "type": "PLAINTEXT",
+            },
+            {
                 "name": "REPLACE_SAGEMAKER_PROJECT_FSX_ID",
                 "value": event["REPLACE_SAGEMAKER_PROJECT_FSX_ID"],
                 "type": "PLAINTEXT",
