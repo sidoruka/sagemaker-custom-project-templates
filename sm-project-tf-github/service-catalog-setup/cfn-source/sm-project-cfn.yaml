@@ -37,6 +37,11 @@ Parameters:
     Default: 'dev-machine-learning-ops'
     Description: S3 Bucket containing the MLOps Terraform Code.  
 
+  FsxID:
+    Type: String
+    Default: 'fs-xxxxxxxx'
+    Description: ID of the FSx for Lustre filesystem containing the training job inputs.
+
   CommandRunnerIAMInstanceProfile:
     Type: String
     Default: 'CommandRunnerExecRole'
@@ -102,6 +107,8 @@ Resources:
         echo "$TF_VAR_codestar_connection_arn"
         export TF_VAR_secrets_manager_secret_arn=${SecretsManagerSecretArn}
         echo "$TF_VAR_secrets_manager_secret_arn"
+        export TF_VAR_fsx_id=${FsxID}
+        echo "$TF_VAR_fsx_id"
         terraform plan
         terraform ${TerraformAction} -auto-approve 
         echo "Terraform Apply Output : $?"
