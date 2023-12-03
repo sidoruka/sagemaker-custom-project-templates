@@ -66,7 +66,7 @@ def get_build_environment_variables_override(event):
             },
             {
                 "name": "SAGEMAKER_PROJECT_WORKING_BUCKET",
-                "value": event["SAGEMAKER_PROJECT_WORKING_BUCKET"],
+                "value": "s3://" + event["SAGEMAKER_PROJECT_WORKING_BUCKET"],
                 "type": "PLAINTEXT",
             },
             {
